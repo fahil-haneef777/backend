@@ -11,14 +11,16 @@ const env = require("dotenv").config();
 const nodemailer = require("nodemailer");
 const smtptransport = require('nodemailer-smtp-transport')
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  secure: false,
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: "fahilhaneef006@gmail.com",
     pass: process.env.MAIL_PASS,
   },
 });
+
 transporter.verify(function (error, success) {
   if (error) {
     console.log(error);
